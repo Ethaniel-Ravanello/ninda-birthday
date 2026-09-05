@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Happy Birthday, My Love ♡</title>
+
+    <style>
+      /* =========================================================
+   RESET
+========================================================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: Georgia, "Times New Roman", serif;
+        background: #fff8f5;
+        color: #3d2b2b;
+        overflow-x: hidden;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      /* =========================================================
+   GLOBAL
+========================================================= */
+
+      .volume-control {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 100;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+
+        border: 1px solid #f0d9d9;
+        padding: 10px 15px;
+        border-radius: 50px;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .volume-control span {
+        font-size: 18px;
+      }
+
+      #volumeSlider {
+        width: 110px;
+        accent-color: #c56f7b;
+        cursor: pointer;
+      }
+      section {
+        min-height: 100vh;
+        padding: 100px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .section-inner {
+        width: min(1000px, 100%);
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: 15px;
+      }
+
+      .section-subtitle {
+        color: #977777;
+        font-size: 1rem;
+        margin-bottom: 50px;
+      }
+
+      .script {
+        font-family: "Brush Script MT", cursive;
+      }
+
+      /* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+      .heart {
+        position: fixed;
+        bottom: -30px;
+        pointer-events: none;
+        animation: floatHeart linear forwards;
+        z-index: 20;
+        opacity: 0.8;
+      }
+
+      @keyframes floatHeart {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 0.8;
+        }
+
+        100% {
+          transform: translateY(-110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* =========================================================
+   WELCOME
+========================================================= */
+
+      #welcome {
+        background:
+          radial-gradient(circle at 20% 20%, #ffdfe5 0, transparent 25%),
+          radial-gradient(circle at 80% 80%, #ffe7d5 0, transparent 25%),
+          #fff8f5;
+        overflow: hidden;
+      }
+
+      .welcome-content {
+        text-align: center;
+        z-index: 2;
+      }
+
+      .small-greeting {
+        color: #b98282;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        margin-bottom: 25px;
+      }
+
+      .welcome-title {
+        font-size: clamp(3.5rem, 12vw, 8rem);
+        line-height: 0.9;
+        color: #542f35;
+      }
+
+      .welcome-title span {
+        display: block;
+        font-family: "Brush Script MT", cursive;
+        color: #c56f7b;
+        font-size: 0.65em;
+        margin-top: 20px;
+      }
+
+      .welcome-text {
+        margin: 35px auto;
+        color: #8f7070;
+        font-size: 1.1rem;
+      }
+
+      .open-btn {
+        border: none;
+        padding: 17px 35px;
+        border-radius: 50px;
+        background: #c56f7b;
+        color: white;
+        font-size: 1rem;
+        box-shadow: 0 12px 30px rgba(197, 111, 123, 0.3);
+        transition: 0.3s;
+      }
+
+      .open-btn:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 18px 40px rgba(197, 111, 123, 0.4);
+      }
+
+      /* =========================================================
+   LETTER
+========================================================= */
+
+      #letter {
+        background: #fdf1ed;
+      }
+
+      .letter-card {
+        background: #fffdfb;
+        max-width: 700px;
+        margin: auto;
+        padding: clamp(35px, 7vw, 70px);
+        box-shadow: 0 25px 70px rgba(90, 50, 50, 0.1);
+        position: relative;
+        transform: rotate(-1deg);
+      }
+
+      .letter-card::before {
+        content: "♡";
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 2rem;
+        color: #e3a0a9;
+      }
+
+      .letter-card h3 {
+        font-family: "Brush Script MT", cursive;
+        font-size: 2.5rem;
+        color: #c56f7b;
+        margin-bottom: 30px;
+      }
+
+      .letter-card p {
+        line-height: 2;
+        text-align: left;
+        color: #604848;
+        margin-bottom: 20px;
+      }
+
+      .signature {
+        text-align: right !important;
+        font-family: "Brush Script MT", cursive;
+        font-size: 1.8rem;
+        color: #c56f7b;
+      }
+
+      /* =========================================================
+   PHOTO FLOWER
+========================================================= */
+
+      #memories {
+        background: #fffaf8;
+      }
+
+      .flower {
+        width: 500px;
+        height: 500px;
+        max-width: 90vw;
+        max-height: 90vw;
+        margin: auto;
+        position: relative;
+      }
+
+      .photo {
+        position: absolute;
+        width: 170px;
+        height: 210px;
+        padding: 8px 8px 35px;
+        background: white;
+        box-shadow: 0 15px 35px rgba(60, 30, 30, 0.18);
+        left: 50%;
+        top: 50%;
+        transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+      }
+
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo:nth-child(1) {
+        transform: translate(-50%, -50%) rotate(-7deg);
+      }
+
+      .photo:nth-child(2) {
+        transform: translate(-50%, -50%) rotate(8deg);
+      }
+
+      .photo:nth-child(3) {
+        transform: translate(-50%, -50%) rotate(-4deg);
+      }
+
+      .photo:nth-child(4) {
+        transform: translate(-50%, -50%) rotate(6deg);
+      }
+
+      .photo:nth-child(5) {
+        transform: translate(-50%, -50%) rotate(-10deg);
+      }
+
+      .photo.active:nth-child(1) {
+        transform: translate(-50%, -50%) translate(-160px, -130px)
+          rotate(-12deg);
+      }
+
+      .photo.active:nth-child(2) {
+        transform: translate(-50%, -50%) translate(150px, -120px) rotate(10deg);
+      }
+
+      .photo.active:nth-child(3) {
+        transform: translate(-50%, -50%) translate(-190px, 80px) rotate(-8deg);
+      }
+
+      .photo.active:nth-child(4) {
+        transform: translate(-50%, -50%) translate(170px, 80px) rotate(12deg);
+      }
+
+      .photo.active:nth-child(5) {
+        transform: translate(-50%, -50%) translate(0, 0) rotate(0);
+      }
+
+      .flower-btn {
+        position: absolute;
+        z-index: 10;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 8px solid #fffaf8;
+        background: #e39aa4;
+        color: white;
+        font-size: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .memory-caption {
+        margin-top: 30px;
+        color: #997777;
+      }
+
+      /* =========================================================
+   MUSIC
+========================================================= */
+
+      .music-player {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border: 1px solid #f0d9d9;
+        padding: 10px 15px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .music-player button {
+        border: none;
+        background: #c56f7b;
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+      }
+
+      .music-info {
+        font-size: 0.75rem;
+        color: #765858;
+      }
+
+      /* =========================================================
+   REASONS JAR
+========================================================= */
+
+      #reasons {
+        background: #f8ece8;
+      }
+
+      .jar-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .jar {
+        width: 180px;
+        height: 230px;
+        border: 5px solid #d5a6a6;
+        border-radius: 25px 25px 45px 45px;
+        position: relative;
+        background: rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(5px);
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .jar:hover {
+        transform: translateY(-8px) rotate(2deg);
+      }
+
+      .jar::before {
+        content: "";
+        position: absolute;
+        width: 110px;
+        height: 25px;
+        background: #c78e8e;
+        border-radius: 8px;
+        top: -22px;
+        left: 30px;
+      }
+
+      .jar-lid {
+        position: absolute;
+        width: 120px;
+        height: 30px;
+        background: #e2b0b0;
+        top: -28px;
+        left: 25px;
+        border-radius: 10px;
+      }
+
+      .jar-hearts {
+        font-size: 2rem;
+        line-height: 1.5;
+        padding: 50px 15px;
+      }
+
+      .jar-instruction {
+        margin-top: 25px;
+        color: #997777;
+      }
+
+      .reason-card {
+        margin-top: 35px;
+        max-width: 550px;
+        min-height: 120px;
+        padding: 30px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(80, 40, 40, 0.1);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        line-height: 1.7;
+      }
+
+      .reason-card.show {
+        display: flex;
+        animation: pop 0.4s ease;
+      }
+
+      @keyframes pop {
+        from {
+          opacity: 0;
+          transform: scale(0.8) translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      /* =========================================================
+   TIMELINE
+========================================================= */
+
+      #timeline {
+        background: #fffaf8;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 700px;
+        margin: auto;
+        text-align: left;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #e5b6bb;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 60px;
+        margin-bottom: 60px;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 10px;
+        top: 3px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #c56f7b;
+        border: 5px solid #fffaf8;
+        box-shadow: 0 0 0 2px #e5b6bb;
+      }
+
+      .timeline-date {
+        color: #c56f7b;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .timeline-item h3 {
+        margin: 8px 0;
+        font-size: 1.5rem;
+      }
+
+      .timeline-item p {
+        color: #8c7070;
+        line-height: 1.7;
+      }
+
+      /* =========================================================
+   COUPONS
+========================================================= */
+
+      #coupons {
+        background: #fdf0ec;
+      }
+
+      .coupon-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .coupon {
+        background: white;
+        border: 2px dashed #dca2a9;
+        padding: 30px 20px;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      .coupon:hover {
+        transform: translateY(-7px) rotate(1deg);
+      }
+
+      .coupon-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .coupon h3 {
+        margin-bottom: 10px;
+      }
+
+      .coupon p {
+        font-size: 0.85rem;
+        color: #977777;
+        line-height: 1.5;
+      }
+
+      .claim-btn {
+        margin-top: 20px;
+        border: none;
+        padding: 9px 18px;
+        border-radius: 30px;
+        background: #e3a0a8;
+        color: white;
+      }
+
+      .claimed {
+        opacity: 0.55;
+      }
+
+      .claimed .claim-btn {
+        background: #aaa;
+      }
+
+      /* =========================================================
+   FINAL
+========================================================= */
+
+      #final {
+        background:
+          radial-gradient(circle at 50% 50%, #ffe0e5, transparent 50%), #fff7f4;
+      }
+
+      .final-content {
+        max-width: 750px;
+      }
+
+      .final-heart {
+        font-size: 5rem;
+        animation: heartbeat 1.5s infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.15);
+        }
+      }
+
+      .final-title {
+        font-size: clamp(3rem, 9vw, 6rem);
+        color: #c56f7b;
+        margin: 25px 0;
+      }
+
+      .final-message {
+        font-size: 1.15rem;
+        line-height: 2;
+        color: #765858;
+      }
+
+      .restart-btn {
+        margin-top: 40px;
+        border: none;
+        background: transparent;
+        color: #c56f7b;
+        text-decoration: underline;
+      }
+
+      /* =========================================================
+   RESPONSIVE
+========================================================= */
+
+      @media (max-width: 700px) {
+        section {
+          padding: 80px 18px;
+        }
+
+        .flower {
+          width: 340px;
+          height: 420px;
+        }
+
+        .photo {
+          width: 130px;
+          height: 165px;
+        }
+
+        .photo.active:nth-child(1) {
+          transform: translate(-50%, -50%) translate(-80px, -120px)
+            rotate(-12deg);
+        }
+
+        .photo.active:nth-child(2) {
+          transform: translate(-50%, -50%) translate(75px, -120px) rotate(10deg);
+        }
+
+        .photo.active:nth-child(3) {
+          transform: translate(-50%, -50%) translate(-90px, 100px) rotate(-8deg);
+        }
+
+        .photo.active:nth-child(4) {
+          transform: translate(-50%, -50%) translate(85px, 100px) rotate(12deg);
+        }
+
+        .coupon-grid {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+        }
+
+        .music-info {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =====================================================
+     WELCOME
+====================================================== -->
+
+    <section id="welcome">
+      <div class="welcome-content">
+        <div class="small-greeting">A little something for you</div>
+
+        <h1 class="welcome-title">
+          Happy
+          <span>Birthday Ninda ♡</span>
+        </h1>
+
+        <p class="welcome-text">
+          I made something special for you.
+          <br />
+          Ready to open it?
+        </p>
+
+        <button class="open-btn" onclick="openGift()">Open Your Gift ♡</button>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     LETTER
+====================================================== -->
+
+    <section id="letter">
+      <div class="section-inner">
+        <h2 class="section-title">A Letter For You</h2>
+
+        <p class="section-subtitle">Something I wanted you to know.</p>
+
+        <div class="letter-card">
+          <h3>To my favorite person,</h3>
+
+          <p>Happy birthday, Ninda.</p>
+
+          <p>
+            Tomorrow your is another year older, and I hope you know how much
+            you mean to me. Tho judging the time i sleep i probably send this
+            link at 9 pm before i go sleep lol
+          </p>
+
+          <p>
+            Thank you for all the little moments, the random conversations, the
+            laughs, the quiet moments, and all the memories we've made together.
+            At first i dont know what im expecting forward from this
+            relationship from Bumble but now i know that i want to be with you
+            for a long time. I hope you know that.
+          </p>
+
+          <p>
+            I hope this next year brings you everything you've been wishing for.
+            staying sane from your karil and your stuff, surviving your little
+            cousing, and all the other things that life throws at you. And I
+            hope I get to be there for a lot of it and help you went through it.
+          </p>
+
+          <p>
+            You deserve to be happy, loved, spoiled, and reminded of how special
+            you are.
+          </p>
+
+          <p>Happy birthday ♡</p>
+
+          <p class="signature">— Your Handsome idiot ♡</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     PHOTO MEMORIES
+====================================================== -->
+
+    <section id="memories">
+      <div class="section-inner">
+        <h2 class="section-title">Our Little Memories</h2>
+
+        <p class="section-subtitle">Click the flower ♡</p>
+
+        <div class="flower">
+          <div class="photo">
+            <img src="photos/photo1.jpeg" alt="Memory 1" />
+          </div>
+
+          <div class="photo">
+            <img src="photos/photo2.jpeg" alt="Memory 2" />
+          </div>
+
+          <div class="photo">
+            <img src="photos/photo3.jpeg" alt="Memory 3" />
+          </div>
+
+          <div class="photo">
+            <img src="photos/photo4.jpeg" alt="Memory 4" />
+          </div>
+
+          <div class="photo">
+            <img src="photos/photo5.jpeg" alt="Memory 5" />
+          </div>
+
+          <button class="flower-btn" onclick="openPhotos()">♡</button>
+        </div>
+
+        <p class="memory-caption">
+          Five little memories that mean a lot to me.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     FINAL SURPRISE
+====================================================== -->
+
+    <section id="final">
+      <div class="section-inner final-content">
+        <div class="final-heart">♡</div>
+
+        <h1 class="final-title">Happy Birthday</h1>
+
+        <p class="final-message">
+          I hope you know just how much you mean to me.
+
+          <br /><br />
+
+          Thank you for being part of my life, for all the memories we've made,
+          and for all the ones we haven't made yet.
+
+          <br /><br />
+
+          Here's to another year of you being amazing, annoying, adorable, and
+          somehow still putting up with me.
+
+          <br /><br />
+
+          I love you. ♡
+        </p>
+
+        <button
+          class="restart-btn"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        >
+          Start from the beginning
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     MUSIC PLAYER
+====================================================== -->
+
+    <div class="volume-control">
+      <span>🔊</span>
+      <input
+        type="range"
+        id="volumeSlider"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.5"
+      />
+    </div>
+
+    <audio id="music" autoplay loop>
+      <source src="music/lagu.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      /* =========================================================
+         OPEN GIFT
+      ========================================================= */
+
+      function openGift() {
+        document.getElementById("letter").scrollIntoView({
+          behavior: "smooth",
+        });
+
+        startHearts();
+
+        const music = document.getElementById("music");
+
+        music.play().catch(() => {
+          console.log("Browser blocked autoplay.");
+        });
+      }
+
+      /* =========================================================
+         PHOTO FLOWER
+      ========================================================= */
+
+      function openPhotos() {
+        const photos = document.querySelectorAll(".photo");
+
+        photos.forEach((photo) => {
+          photo.classList.toggle("active");
+        });
+      }
+
+      /* =========================================================
+         REASONS
+      ========================================================= */
+
+      const reasons = [
+        "I love how you can make ordinary days feel special.",
+
+        "I love your smile.",
+
+        "I love the way you get excited about things you care about.",
+
+        "I love all the tiny things you probably don't even realize I notice.",
+
+        "I love spending quiet time with you.",
+
+        "I love hearing you talk about something you're passionate about.",
+
+        "I love the memories we've already made.",
+
+        "I love imagining all the memories we haven't made yet.",
+
+        "I love how comfortable I feel around you.",
+
+        "I love your little habits.",
+
+        "I love making you laugh.",
+
+        "I love seeing you happy.",
+
+        "I love that you're you.",
+
+        "I love being able to call you mine.",
+
+        "And honestly... I could keep going forever. ♡",
+      ];
+
+      let reasonIndex = 0;
+
+      function showReason() {
+        const card = document.getElementById("reasonCard");
+
+        card.innerText = reasons[reasonIndex];
+
+        card.classList.remove("show");
+
+        void card.offsetWidth;
+
+        card.classList.add("show");
+
+        reasonIndex++;
+
+        if (reasonIndex >= reasons.length) {
+          reasonIndex = 0;
+        }
+      }
+
+      /* =========================================================
+         COUPONS
+      ========================================================= */
+
+      function claimCoupon(button) {
+        const coupon = button.closest(".coupon");
+
+        coupon.classList.add("claimed");
+
+        button.innerText = "CLAIMED ♡";
+
+        createHeart();
+      }
+
+      /* =========================================================
+         FLOATING HEARTS
+      ========================================================= */
+
+      function createHeart() {
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerText = ["♡", "♥", "❤", "✦"][Math.floor(Math.random() * 4)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.fontSize = 12 + Math.random() * 25 + "px";
+
+        heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 10000);
+      }
+
+      function startHearts() {
+        setInterval(() => {
+          createHeart();
+        }, 700);
+      }
+
+      /* =========================================================
+         INITIAL HEARTS
+      ========================================================= */
+
+      setTimeout(() => {
+        for (let i = 0; i < 8; i++) {
+          setTimeout(createHeart, i * 400);
+        }
+      }, 1000);
+
+      const music = document.getElementById("music");
+      const volumeSlider = document.getElementById("volumeSlider");
+
+      music.volume = 0.5;
+
+      volumeSlider.addEventListener("input", () => {
+        music.volume = volumeSlider.value;
+      });
+    </script>
+  </body>
+</html>
+```
